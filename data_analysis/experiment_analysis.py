@@ -158,7 +158,7 @@ def count_cq_per_column(file_path):
     for col in cq_columns:
         sums[col] = df[col].sum()
 
-    return sums
+    print(sums)
 
 
 def check_normality_per_column(file_path):
@@ -188,7 +188,7 @@ def check_normality_per_column(file_path):
             except Exception as e:
                 result[column] = f"Processing error: {e}"
 
-        return result
+        print(result)
 
     except FileNotFoundError:
         return "Error: file not found."
@@ -252,4 +252,4 @@ def wilcoxon_test_ratio(file_path, field, alpha=0.05):
                 # Handle any errors during the conversion or statistical test
                 results[llm]['error'] = str(e)
 
-    return results
+    print(results)
