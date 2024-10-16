@@ -1,0 +1,58 @@
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
+
+public class PasswordValidator {
+
+    public static void main(String[] args) {
+        // Stored SHA-1 hashed password
+        String storedPasswordHash = "f6ce584e7b4ff5253eed4a2ea2b44247";
+
+        // Get user input password
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your password: ");
+        String inputPassword = scanner.nextLine();
+
+        // Hash the user input
+        String inputPasswordHash = generateSHA1Hash(inputPassword);
+
+        // Validate the password by comparing the hashes
+        if (storedPasswordHash.equals(inputPasswordHash)) {
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Invalid password");
+        }
+
+        scanner.close();
+    }
+
+    // Method to hash input using SHA-1
+    public static String generateSHA1Hash(String input) {
+        try {
+            MessageDigest sha1Digest = MessageDigest.getInstance("SHA-1");
+            byte[] hashBytes = sha1Digest.digest(input.getBytes(StandardCharsets.UTF_8));
+
+            // Convert hashed bytes to a hexadecimal string
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hashBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new HashingException("Error generating SHA-1 hash", e);
+        }
+    }
+}
+
+// Custom exception for hashing errors
+class HashingException extends Exception {
+    public HashingException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+

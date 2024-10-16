@@ -103,7 +103,7 @@ def java_loc_counter(code: str) -> int:
     print(loc)
 
 
-def count_php_code_lines(php_code: str) -> int:
+def php_loc_counter(php_code: str) -> int:
     """
     Counts all the lines of code in a PHP snippet, excluding single-line and multi-line comments.
 
@@ -177,3 +177,4 @@ def count_php_code_lines(php_code: str) -> int:
 
     return code_lines
 
+process_language_code("PHP", "C:\\Users\\Matteo\\Desktop\\Dataset\\PHP")
