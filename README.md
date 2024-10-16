@@ -28,6 +28,6 @@ Python 3.11.9
    ```
 2. Install Dependencies:
    ```sh
-   cd requirements
-   pip install -r requirements.txt
+   pip install pandas
+   pip install scipy
    ```
