@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "ext-soap": "*",
+        "ext-openssl": "*",
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "^6.8",
+        "setasign/fpdi": "^2.3",
+        "laminas/laminas-soap": "^3.8",
+        "phpseclib/phpseclib": "^3.0",
+        "fpdf/fpdf": "^1.8"
+    }
+}
