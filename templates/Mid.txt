@@ -1,0 +1,3 @@
+I’m writing code for a critical digital solution that must adhere to high-quality standards and be free of vulnerabilities.
+Given these requirements, could you implement the functionality described below?
+[User Prompt]
